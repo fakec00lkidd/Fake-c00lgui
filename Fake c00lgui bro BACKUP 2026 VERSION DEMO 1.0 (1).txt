@@ -1179,7 +1179,7 @@ CreateButton(
                 local zloc = math.floor(math.random(-600, 600) + z)
                 local y = math.floor(root.Position.Y + 400 + math.random(0, 400))
                 spawn(function()
-                    CreatePart(CFrame.new(xloc, y, zloc))
+                    CreatePart(CFrame.new(xloc, y, zloc), workspace)
                     for _, v in workspace:GetDescendants() do
                         if v.Name == "Part"
                             and v.Parent == workspace
