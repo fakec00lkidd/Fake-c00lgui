@@ -228,6 +228,18 @@ function AddDecal(part, asset, side)
 	}
 	_(args)
 end
+function SetTexture(part,texid)
+	local args = {
+		[1] = "SyncMesh",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["TextureId"] = "rbxassetid://"..texid
+			}
+		}
+	}
+	_(args)
+end
 function MeshResize(part, size)
 	local args = {
 		[1] = "SyncMesh",
