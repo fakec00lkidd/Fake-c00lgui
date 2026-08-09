@@ -1167,16 +1167,35 @@ CreateButton(
     "Part spam (TEST)",
     "Partz spam (TEST)",
     function()
-local root = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-        local spawnPos = CFrame.new(
-            math.floor(root.Position.X),
-            math.floor(root.Position.Y) + 6,
-            math.floor(root.Position.Z)
-        )
-        while true do
-        CreatePart(spawnPos, workspace)
-task.wait()
+local function createRainToads()
+    while true do
+        wait(0.01) -- Here they change the appearance time of the Toads or other meshes
+        if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 then
+            local hrpcf = player.Character.HumanoidRootPart.CFrame
+            local x = hrpcf.x
+            local z = hrpcf.z
+            local randint = math.random(-600, 600)
+            local randint2 = math.random(-600, 600)
+            local xloc = randint + x
+            local zloc = randint2 + z
+            local cf = player.Character.HumanoidRootPart.CFrame.y + 400
+
+            spawn(function()
+                local newToad = CreatePart(CFrame.new(math.floor(xloc), math.random(cf, cf + 400), math.floor(zloc)))
+                for i, v in game.Workspace:GetDescendants() do
+                    if v.Name == "Part" and v.Parent == workspace and v.CFrame.x == math.floor(xloc) and v.CFrame.z == math.floor(zloc) then
+                        SetAnchor(false, v)
+                        SetCollision(v, true)
+                    end
+                end
+            end)
+        else
+            wait(1)
+        end
+    end
 end
+
+coroutine.wrap(createRainToads)()
     end,
     f3xpage
 )
