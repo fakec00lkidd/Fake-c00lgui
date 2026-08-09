@@ -1167,13 +1167,16 @@ CreateButton(
     "Part spam (TEST)",
     "Partz spam (TEST)",
     function()
+local root = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         local spawnPos = CFrame.new(
             math.floor(root.Position.X),
             math.floor(root.Position.Y) + 6,
             math.floor(root.Position.Z)
         )
-        print("Intentando crear parte...")
+        while true do
         CreatePart(spawnPos, workspace)
+task.wait()
+end
     end,
     f3xpage
 )
