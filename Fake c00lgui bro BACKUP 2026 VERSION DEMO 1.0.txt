@@ -1208,7 +1208,7 @@ CreateButton(
     "Youve been trolled",
     "Yes you probably been told",
     function()
-        Request(";music 112626671704099 ;pitch 0.2 ;volume 10")
+        Request(";music 112626671704099 ;pitch 0.25 ;volume 10")
     end,
     MusicPreset
 )
@@ -1256,7 +1256,7 @@ CreateButton(
     "MANGO MANGO 💀",
     "mango music 🗿",
     function()
-        Request(";music 113568851878579 ;pitch 0.150 ;volume inf")
+        Request(";music 113568851878579 ;pitch 0.23 ;volume inf")
     end,
     MusicPreset
 )
