@@ -1,4 +1,4 @@
-here i save ALLLL my fake c00lgui versions
+here i save the c00lgui
 
 if you didnt know i have a tiktok pls follow me if you enjoy the script: ```@fake_c00lkldd```
 
