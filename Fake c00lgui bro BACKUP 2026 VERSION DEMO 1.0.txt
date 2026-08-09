@@ -1154,6 +1154,14 @@ CreateButton(
     function()
         Request(";music 93602974995833 ;volume 10")
     end,
+    MusicPreset
+)
+CreateButton(
+    "MANGO MANGO 💀",
+    "mango music 🗿",
+    function()
+        Request(";music 113568851878579 ;pitch 0.150 ;volume inf")
+    end,
     HDPage
 )
 CreateButton(
