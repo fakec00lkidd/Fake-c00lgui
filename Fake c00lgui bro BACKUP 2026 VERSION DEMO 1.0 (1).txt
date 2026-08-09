@@ -1164,6 +1164,22 @@ CreateButton(
     f3xpage
 )
 CreateButton(
+    "Part spam (CRASH?)",
+    "Partz span (CRASH?)",
+    function()
+     local spawnPos = CFrame.new(
+		math.floor(root.Position.X),
+		math.floor(root.Position.Y),
+		math.floor(root.Position.Z)
+	) + Vector3.new(0,6,0)
+while true do
+task.wait()
+	CreatePart(spawnPos,workspace)
+end
+    end,
+    f3xpage
+)
+CreateButton(
     "Play music",
     "Pllay music",
     function()
