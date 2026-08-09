@@ -1282,5 +1282,11 @@ local function AplicarConfiguracion(Character)
     if Config.JumpPower then
         Humanoid.JumpPower = Config.JumpPower
     end
+    char = Character
+    task.wait(1)
+    if tool and tool:FindFirstChild("SyncAPI") then
+        remote = tool.SyncAPI:FindFirstChild("ServerEndpoint")
+        Isf3xenabled = remote ~= nil
+    end
 end
 LocalPlayer.CharacterAdded:Connect(AplicarConfiguracion)
