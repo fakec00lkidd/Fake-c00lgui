@@ -1164,8 +1164,8 @@ CreateButton(
     f3xpage
 )
 CreateButton(
-    "Part spam (TEST)",
-    "Partz spam (TEST)",
+    "Part spam (EMERGENCY ONLY)",
+    "Partz spam (press if u want idgas)",
     function()
         if not game.Workspace:FindFirstChild("Part") then
 local args = {
