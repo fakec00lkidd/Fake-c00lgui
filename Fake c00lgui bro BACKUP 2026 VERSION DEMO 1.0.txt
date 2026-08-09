@@ -1172,6 +1172,84 @@ CreateButton(
     HDPage
 )
 CreateButton(
+    "Realm",
+    "Reelm",
+    function()
+        Request(";btools")
+loadhttp("https://rawscripts.net/raw/Universal-Script-F3X-Piggy-chapter-1-map-165928")
+Request(";punish all")
+Request(";time 0 ;fog 1600 1600 ;fogcolor black")
+function spam(id)
+            for _, v in workspace:GetDescendants() do
+                if v:IsA("BasePart") and not EsParteDeJugador(v) then
+                    task.spawn(function()
+                        SetLocked(v, false)
+                        SpawnDecal(v, Enum.NormalId.Front)
+                        AddDecal(v, id, Enum.NormalId.Front)
+                        SpawnDecal(v, Enum.NormalId.Back)
+                        AddDecal(v, id, Enum.NormalId.Back)
+                        SpawnDecal(v, Enum.NormalId.Right)
+                        AddDecal(v, id, Enum.NormalId.Right)
+                        SpawnDecal(v, Enum.NormalId.Left)
+                        AddDecal(v, id, Enum.NormalId.Left)
+                        SpawnDecal(v, Enum.NormalId.Bottom)
+                        AddDecal(v, id, Enum.NormalId.Bottom)
+                        SpawnDecal(v, Enum.NormalId.Top)
+                        AddDecal(v, id, Enum.NormalId.Top)
+                        SetLocked(v, true)
+                    end)
+                end
+            end
+        end
+        spam(124481357121772)
+function Sky(id)
+	local root = char.HumanoidRootPart
+	local spawnPos = CFrame.new(
+		math.floor(root.Position.X),
+		math.floor(root.Position.Y),
+		math.floor(root.Position.Z)
+	) + Vector3.new(0,6,0)
+	CreatePart(spawnPos,workspace)
+	task.wait(0.2)
+	local skyPart
+	for i,v in workspace:GetDescendants() do
+		if v:IsA("BasePart") and (v.Position - spawnPos.Position).Magnitude < 1 then
+			skyPart = v
+			AddMesh(v)
+			SetMesh(v,"111891702759441")
+			SetTexture(v,id)
+SetMeshVertexColor(v, Vector3.new(3,3,3))
+			MeshResize(v,Vector3.new(1500,1500,1500))
+			SetLocked(v,true)
+			SetAnchor(true,v)
+			SetCollision(v,false)
+			break
+		end
+	end
+	if skyPart then
+		local t = 0
+		local baseSpeed = 0
+		local randomness = 0
+		game:GetService("RunService").Heartbeat:Connect(function(dt)
+			t = t + dt
+			local rotX = math.sin(t * 1.5) * randomness
+			local rotY = t * baseSpeed
+			local rotZ = math.cos(t * 2.1) * randomness
+			local newCf = spawnPos * CFrame.Angles(
+				math.rad(rotX),
+				math.rad(rotY),
+				math.rad(rotZ)
+			)
+			MovePart(skyPart,newCf)
+		end)
+	end
+end
+Sky(124481357121772)
+Request(";unpunish all")
+    end,
+    f3xpage
+)
+CreateButton(
     "Title",
     "Tïtlee",
     function()
