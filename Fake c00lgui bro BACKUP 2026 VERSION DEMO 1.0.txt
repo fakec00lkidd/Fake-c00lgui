@@ -1203,7 +1203,7 @@ function spam(id)
             end
         end
         spam(124481357121772)
-Request(;unpunish all")
+Request(";unpunish all")
 function Sky(id)
 	local root = char.HumanoidRootPart
 	local spawnPos = CFrame.new(
