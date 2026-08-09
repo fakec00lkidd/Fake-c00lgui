@@ -1284,9 +1284,16 @@ local function AplicarConfiguracion(Character)
     end
     char = Character
     task.wait(1)
-    if tool and tool:FindFirstChild("SyncAPI") then
-        remote = tool.SyncAPI:FindFirstChild("ServerEndpoint")
+    local NewTool = Character:FindFirstChildWhichIsA("Tool")
+        or LocalPlayer.Backpack:FindFirstChildWhichIsA("Tool")
+    if NewTool and NewTool:FindFirstChild("SyncAPI") then
+        tool = NewTool
+        remote = NewTool.SyncAPI:FindFirstChild("ServerEndpoint")
         Isf3xenabled = remote ~= nil
+
+        print("F3X actualizado:", remote)
+    else
+        print("F3X no encontrado después del respawn")
     end
 end
 LocalPlayer.CharacterAdded:Connect(AplicarConfiguracion)
