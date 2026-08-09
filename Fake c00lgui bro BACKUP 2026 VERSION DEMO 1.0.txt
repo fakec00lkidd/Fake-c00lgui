@@ -1065,16 +1065,6 @@ CreateButton(
     end,
     HDPage
 )
-
-CreateButton(
-    "Play music",
-    "Pllay music",
-    function()
-        Request("; ")
-    end,
-    HDPage
-)
-
 CreateButton(
     "Title",
     "Tïtlee",
@@ -1162,7 +1152,7 @@ CreateButton(
     function()
         Request(";music 113568851878579 ;pitch 0.150 ;volume inf")
     end,
-    HDPage
+    MusicPreset
 )
 CreateButton(
     "fake c00lkidd image",
