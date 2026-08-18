@@ -1085,7 +1085,6 @@ CreateButton(
     "the 3 lasers gear idk",
     "Punteros láser de dedo",
     function()
-        local Players = game:GetService("Players")
 local Event = Players.LocalPlayer.Backpack["Building Tools+"].SyncAPI.ServerEndpoint
 local create = {}
 local sync = {}
