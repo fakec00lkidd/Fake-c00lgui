@@ -1074,6 +1074,35 @@ CreateButton(
     f3xpage
 )
 CreateButton(
+"particles",
+"parzticlez",
+function()
+local create = {}
+local sync = {}
+for _, plr in ipairs(Players:GetPlayers()) do
+local char = plr.Character
+if char then
+for _, part in ipairs(char:GetDescendants()) do
+if part:IsA("BasePart") then
+table.insert(create, {
+Part = part,
+DecorationType = "ParticleEmitter"
+})
+table.insert(sync, {
+Part = part,
+DecorationType = "ParticleEmitter",
+Texture = "rbxassetid://" .. tostring(Config.Imagen)
+})
+end
+end
+end
+end
+remote:InvokeServer("CreateDecorations", create)
+remote:InvokeServer("SyncDecorate", sync)
+end,
+f3xpage
+)
+CreateButton(
     "crash (EMERGENCY ONLY)",
     "crazh (EMERGENCY ONLYZ)",
     function()
