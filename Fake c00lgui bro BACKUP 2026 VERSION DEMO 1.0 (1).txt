@@ -1099,7 +1099,7 @@ for _, plr in ipairs(Players:GetPlayers()) do
                 table.insert(sync, {
                     Part = part,
                     DecorationType = "ParticleEmitter",
-                    Texture = "rbxassetid://" .. Config.Imagen
+                    Texture = "rbxassetid://" .. tostring(Config.Imagen)
                 })
             end
         end
