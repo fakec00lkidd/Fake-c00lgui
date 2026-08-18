@@ -979,10 +979,6 @@ local function loadhttp(link: string)
 	end
 end
 
-local page1 = Makeapageidk()
-local Misc = MakeSection(page1, "LocalPlayer properties", LEFT)
-local BasicSec = MakeSection(page1, "Basic things", RIGHT)
-
 local page2 = Makeapageidk()
 local f3xpage = MakeSection(page2, "f3x", LEFT)
 local HDPage= MakeSection(page2, "HD Admin", RIGHT)
@@ -992,90 +988,10 @@ local MusicPreset = MakeSection(page3, "Music Presets", LEFT)
 local DecalPreset = MakeSection(page3, "Decal Presets", RIGHT)
 
 local page4 = Makeapageidk()
-local HubGames = MakeSection(page4, "Pls chatgpt give me a idea 🥺", LEFT)
+local GearsPage = MakeSection(page4, "Gears", LEFT)
 sut(page4,
     "Fake c00lgui\nmade by: afriendly_guest7\n\nSpecial thanks:\nChatGPT\neveryone who gave ideas\neveryone who tested it\n\nVersion: 1.0",
     RIGHT
-)
-
-CreateButton(
-    "Change walkspeed",
-    "Ghange wvalkspeeed",
-    function()
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-humanoid.WalkSpeed = Config.Walkspeed
-    end,
-Misc
-)
-CreateButton(
-    "Change JumpPower",
-    "Chamge JumpP0werr",
-    function()
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-humanoid.JumpPower = Config.JumpPower
-    end,
-Misc
-)
-local Noclip = nil
-local Clip = nil
-local NoclipButton = false
-function noclip()
-	Clip = false
-	local function Nocl()
-		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
-			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA('BasePart') and v.CanCollide then
-					v.CanCollide = false
-				end
-			end
-		end
-		wait(0.21)
-	end
-	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
-end
-function clip()
-	if Noclip then Noclip:Disconnect() end
-	Clip = true
-end
-CreateButton(
-    "Noclip",
-    "Ńoclïp",
-    function()
-NoclipButton = not NoclipButton
-if NoclipButton then
-noclip()
-else
-clip()
-end
-    end,
-Misc
-)
-local InfiniteJumpConnection
-CreateToggle(
-    "Infinite Jump",
-    "Įnfïnite jvmp",
-    Misc,
-    function()
-        local player = Players.LocalPlayer
-        InfiniteJumpConnection = UserInputService.JumpRequest:Connect(function()
-            local character = player.Character
-            if not character then return end
-            local humanoid = character:FindFirstChild("Humanoid")
-            if humanoid and humanoid:GetState() ~= Enum.HumanoidStateType.Dead then
-                humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-            end
-        end)
-    end,
-    function()
-        if InfiniteJumpConnection then
-            InfiniteJumpConnection:Disconnect()
-            InfiniteJumpConnection = nil
-        end
-    end
 )
 
 CreateButton(
@@ -1198,7 +1114,6 @@ CreateButton(
     "Realm",
     "Reelm",
     function()
-        Request(";btools")
 print("MAP BY 1_WXAA")
 loadhttp("https://rawscripts.net/raw/Universal-Script-BALDI-MAP-F3X-BY-WXA-x-X9D-135857")
 Request(";punish all")
