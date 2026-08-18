@@ -1151,8 +1151,7 @@ CreateButton(
     function()
 print("MAP BY 1_WXAA")
 loadhttp("https://rawscripts.net/raw/Universal-Script-BALDI-MAP-F3X-BY-WXA-x-X9D-135857")
-Request(";punish all")
-Request(";time 0 ;fog 1600 1600 ;fogcolor black")
+Request(";time 0")
 function spam(id)
             for _, v in workspace:GetDescendants() do
                 if v:IsA("BasePart") and not EsParteDeJugador(v) then
@@ -1176,7 +1175,6 @@ function spam(id)
             end
         end
         spam(124481357121772)
-Request(";unpunish all")
 function Sky(id)
 	local root = char.HumanoidRootPart
 	local spawnPos = CFrame.new(
@@ -1220,7 +1218,7 @@ SetMeshVertexColor(v, Vector3.new(3,3,3))
 	end
 end
 Sky(124481357121772)
-Request(";music 93602974995833 ;volume 10 ;disco")
+Request(";music 93602974995833 ;volume 10 ;hideguis others ;uncmdbar2 others ;explode others")
     end,
     HDPage
 )
