@@ -976,14 +976,6 @@ CreateButton(
     GearsPage
 )
 CreateButton(
-    "the 3 lasers gear idk",
-    "Punteros láser de dedo",
-    function()
-        Request(";gear me 115377964")
-    end,
-    GearsPage
-)
-CreateButton(
     "fkn SHOTGUN",
     "Escopeta de guerra de trin",
     function()
