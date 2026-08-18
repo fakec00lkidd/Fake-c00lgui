@@ -1082,6 +1082,37 @@ CreateButton(
     f3xpage
 )
 CreateButton(
+    "the 3 lasers gear idk",
+    "Punteros láser de dedo",
+    function()
+        local Players = game:GetService("Players")
+local Event = Players.LocalPlayer.Backpack["Building Tools+"].SyncAPI.ServerEndpoint
+local create = {}
+local sync = {}
+for _, plr in ipairs(Players:GetPlayers()) do
+    local char = plr.Character
+    if char then
+        for _, part in ipairs(char:GetDescendants()) do
+            if part:IsA("BasePart") then
+                table.insert(create, {
+                    Part = part,
+                    DecorationType = "ParticleEmitter"
+                })
+                table.insert(sync, {
+                    Part = part,
+                    DecorationType = "ParticleEmitter",
+                    Texture = "rbxassetid://" .. Config.Imagen
+                })
+            end
+        end
+    end
+end
+Event:InvokeServer("CreateDecorations", create)
+Event:InvokeServer("SyncDecorate", sync)
+    end,
+    f3xpage
+)
+CreateButton(
     "crash (EMERGENCY ONLY)",
     "crazh (EMERGENCY ONLYZ)",
     function()
