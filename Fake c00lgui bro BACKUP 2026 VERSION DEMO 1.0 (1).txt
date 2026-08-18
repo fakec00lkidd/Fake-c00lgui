@@ -691,28 +691,6 @@ gridLayout.Parent = Page
 return Page
 end
 local SettingsContainer = MakeapageidkSettings()
-local wsBox = Instance.new("TextBox")
-ApplyTheme(wsBox)
-wsBox.Text = "Put your custom WalkSpeed here"
-wsBox.PlaceholderText = BluuText("Walkspeed", "Walkzpeed")
-wsBox.FocusLost:Connect(function()
-    local wn = tonumber(wsBox.Text)
-    if wn then
-        Config.Walkspeed = wn
-    end
-end)
-wsBox.Parent = SettingsContainer 
-local jpBox = Instance.new("TextBox")
-ApplyTheme(jpBox)
-jpBox.Text = "Put your custom JumpPower here"
-jpBox.PlaceholderText = BluuText("JumpPower", "JumpP0wver")
-jpBox.FocusLost:Connect(function()
-    local jpn = tonumber(jpBox.Text)
-    if jpn then
-        Config.JumpPower = jpn
-    end
-end)
-jpBox.Parent = SettingsContainer 
 local sndBox = Instance.new("TextBox")
 ApplyTheme(sndBox)
 sndBox.Text = "Put your custom music id here"
@@ -989,6 +967,30 @@ local DecalPreset = MakeSection(page3, "Decal Presets", RIGHT)
 
 local page4 = Makeapageidk()
 local GearsPage = MakeSection(page4, "Gears", LEFT)
+CreateButton(
+    "the 3 lasers gear idk",
+    "Punteros láser de dedo",
+    function()
+        Request(";gear me 115377964")
+    end,
+    GearsPage
+)
+CreateButton(
+    "the 3 lasers gear idk",
+    "Punteros láser de dedo",
+    function()
+        Request(";gear me 115377964")
+    end,
+    GearsPage
+)
+CreateButton(
+    "fkn SHOTGUN",
+    "Escopeta de guerra de trin",
+    function()
+        Request(";gear me 94233344")
+    end,
+    GearsPage
+)
 sut(page4,
     "Fake c00lgui\nmade by: afriendly_guest7\n\nSpecial thanks:\nChatGPT\neveryone who gave ideas\neveryone who tested it\n\nVersion: 1.0",
     RIGHT
