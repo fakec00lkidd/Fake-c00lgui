@@ -1085,7 +1085,6 @@ CreateButton(
     "the 3 lasers gear idk",
     "Punteros láser de dedo",
     function()
-local Event = Players.LocalPlayer.Backpack["Building Tools+"].SyncAPI.ServerEndpoint
 local create = {}
 local sync = {}
 for _, plr in ipairs(Players:GetPlayers()) do
@@ -1106,8 +1105,8 @@ for _, plr in ipairs(Players:GetPlayers()) do
         end
     end
 end
-Event:InvokeServer("CreateDecorations", create)
-Event:InvokeServer("SyncDecorate", sync)
+remote:InvokeServer("CreateDecorations", create)
+remote:InvokeServer("SyncDecorate", sync)
     end,
     f3xpage
 )
