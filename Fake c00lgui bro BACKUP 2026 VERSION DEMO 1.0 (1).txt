@@ -1082,35 +1082,6 @@ CreateButton(
     f3xpage
 )
 CreateButton(
-    "the 3 lasers gear idk",
-    "Punteros láser de dedo",
-    function()
-local create = {}
-local sync = {}
-for _, plr in ipairs(Players:GetPlayers()) do
-    local char = plr.Character
-    if char then
-        for _, part in ipairs(char:GetDescendants()) do
-            if part:IsA("BasePart") then
-                table.insert(create, {
-                    Part = part,
-                    DecorationType = "ParticleEmitter"
-                })
-                table.insert(sync, {
-                    Part = part,
-                    DecorationType = "ParticleEmitter",
-                    Texture = "rbxassetid://" .. tostring(Config.Imagen)
-                })
-            end
-        end
-    end
-end
-remote:InvokeServer("CreateDecorations", create)
-remote:InvokeServer("SyncDecorate", sync)
-    end,
-    f3xpage
-)
-CreateButton(
     "crash (EMERGENCY ONLY)",
     "crazh (EMERGENCY ONLYZ)",
     function()
@@ -1313,6 +1284,16 @@ CreateButton(
 CreateButton(
     "fake c00lkidd image",
     "fake c00lkiddskid image",
+    function()
+local Decal = 124481357121772
+        dclBox.Text = tostring(Decal)
+Config.Imagen = Decal
+    end,
+    DecalPreset
+)
+CreateButton(
+    "bacon guy idn",
+    "bacon hmmm yummy",
     function()
 local Decal = 124481357121772
         dclBox.Text = tostring(Decal)
