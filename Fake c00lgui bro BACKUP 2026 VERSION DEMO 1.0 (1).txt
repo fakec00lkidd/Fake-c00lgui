@@ -984,7 +984,7 @@ CreateButton(
     GearsPage
 )
 sut(page4,
-    "Thank you for using fake c00lgui!\n\nHave any questions or suggestions? Dm at @fake_c00lkldd!\n\nSpecial thanks to:\nfake c00lkidd: Beta testing\nTrusted members of team fake c00lkidd: Being ultra c00l\nv3rmillion: Being ultra c00l",
+    "Thank you for using fake c00lgui!\n\nHave any questions or suggestions? Dm at @fake_c00lkldd!\n\nSpecial thanks to:\nfake c00lkidd: Beta testing\nTrusted members of team fake c00lkidd: Being ultra c00l\nserversider(zzz/xz): Being ultra c00l",
     RIGHT
 )
 
