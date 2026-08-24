@@ -154,6 +154,14 @@ function SetAnchor(boolean, part)
 	}
 	_(args)
 end
+function Clone(part,parent)
+local args = {
+		[1] = "Clone",
+		[2] = part,
+		[3] = parent
+}
+_(args)
+end
 function DestroyPart(part)
 	local args = {
 		[1] = "Remove",
