@@ -71,6 +71,15 @@ function CreatePart(cf, parent)
 	}
 	remote:InvokeServer(unpack(args))
 end
+function ParticleCreatePart(cf, parent)
+	local args = {
+		[1] = "CreatePart",
+		[2] = "Normal",
+		[3] = cf,
+		[4] = parent
+	}
+	return remote:InvokeServer(unpack(args))
+end
 function MovePart(part, cf)
 	local args = {
 		[1] = "SyncMove",
@@ -1075,18 +1084,8 @@ CreateButton(
 )
 CreateButton(
     "particles",
-    "parzzticlez",
+    "particles",
     function()
-        function ParticleCreatePart(cf, parent)
-	local args = {
-		[1] = "CreatePart",
-		[2] = "Normal",
-		[3] = cf,
-		[4] = parent
-	}
-	return remote:InvokeServer(unpack(args))
-end
-
 local function particlebymo0pkiddlol(id)
 	while true do
 		task.wait(0.21)
@@ -1125,7 +1124,7 @@ local function particlebymo0pkiddlol(id)
 		end
 	end
 end
-particlebymo0pkiddlol("TU ID")
+particlebymo0pkiddlol(Config.Imagen)
     end,
     f3xpage
 )
