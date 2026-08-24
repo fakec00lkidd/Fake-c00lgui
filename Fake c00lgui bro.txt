@@ -1077,40 +1077,55 @@ CreateButton(
     "particles",
     "parzzticlez",
     function()
-        local create = {}
-        local sync = {}
-        if not remote then
-            warn("F3X remote no encontrado")
-            return
-        end
-        if not Config.Imagen then
-            warn("Config.Imagen no está configurada")
-            return
-        end
-        for _, plr in ipairs(Players:GetPlayers()) do
-            local char = plr.Character
-            if char then
-                for _, part in ipairs(char:GetDescendants()) do
-                    if part:IsA("BasePart") then
-                        table.insert(create, {
-                            Part = part,
-                            DecorationType = "ParticleEmitter"
-                        })
-                        table.insert(sync, {
-                            Part = part,
-                            DecorationType = "ParticleEmitter",
-                            Texture = "rbxassetid://" .. tostring(Config.Imagen)
-                        })
-                    end
-                end
-            end
-        end
-        if #create == 0 then
-            warn("No se encontraron partes")
-            return
-        end
-        remote:InvokeServer("CreateDecorations", create)
-        remote:InvokeServer("SyncDecorate", sync)
+        function ParticleCreatePart(cf, parent)
+	local args = {
+		[1] = "CreatePart",
+		[2] = "Normal",
+		[3] = cf,
+		[4] = parent
+	}
+	return remote:InvokeServer(unpack(args))
+end
+
+local function particlebymo0pkiddlol(id)
+	while true do
+		task.wait(0.21)
+		for _, plr in ipairs(game.Players:GetPlayers()) do
+			local char = plr.Character
+			if not char then continue end
+			local head = char:FindFirstChild("Head")
+			local humanoid = char:FindFirstChild("Humanoid")
+			if not head or not humanoid or humanoid.Health <= 0 then continue end
+			local spawnPosition = head.CFrame * CFrame.new(0, 3.5, 0)
+			task.spawn(function()
+				local v = ParticleCreatePart(spawnPosition, workspace)
+				if not v then return end
+				Resize(v, Vector3.new(4, 4, 0.1), v.CFrame)
+				SetCollision(v, false)
+				local faces = {
+					Enum.NormalId.Front,
+					Enum.NormalId.Back,
+					Enum.NormalId.Left,
+					Enum.NormalId.Right
+				}
+				for _, face in ipairs(faces) do
+					SpawnDecal(v, face)
+					AddDecal(v, id, face)
+				end
+				local spreadX = math.random(-2, 2)
+				local spreadZ = math.random(-2, 2)
+				for i = 1, 25 do
+					if not v.Parent then break end
+					local move = CFrame.new(spreadX * 0.3, 0.6, spreadZ * 0.3)
+					MovePart(v, v.CFrame * move)
+					task.wait(0.005)
+				end
+				delete(v)
+			end)
+		end
+	end
+end
+particlebymo0pkiddlol("TU ID")
     end,
     f3xpage
 )
