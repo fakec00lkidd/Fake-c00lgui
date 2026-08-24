@@ -1323,6 +1323,16 @@ Config.Imagen = Decal
     DecalPreset
 )
 -- I am NOT accosiated to SunSh1n3 i just found their f3x script in a tiktok video
+CreateButton(
+    "Sunsh1n3s world tour",
+    "Sonsh1n3s worl tourr",
+    function()
+local Decal = 92302639416733
+        dclBox.Text = tostring(Decal)
+Config.Imagen = Decal
+    end,
+    DecalPreset
+)
 ActualizarPaginas()
 
 if MainFrame
