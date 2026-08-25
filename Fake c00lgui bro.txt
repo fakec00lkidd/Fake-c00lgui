@@ -1119,13 +1119,12 @@ SetTrans(v, 1)
 					AddDecal(v, id, face)
 				end
 				local spreadX = math.random(-2, 2)
-				local spreadZ = math.random(-2, 2)
 				for i = 1, 25 do
 					if not v.Parent then break end
-					MovePart(v, v.CFrame * CFrame.new(0,1,0))
+					MovePart(v, v.CFrame * CFrame.new(math.random(-0.5, 0.5),1,math.random(-0.5, 0.5)))
 					task.wait(0.5)
 				end
-				delete(v)
+				DestroyPart(v)
 			end)
 		end
 	end
