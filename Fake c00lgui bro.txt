@@ -1112,9 +1112,7 @@ SetTrans(v, 1)
 				SetCollision(v, false)
 				local faces = {
 					Enum.NormalId.Front,
-					Enum.NormalId.Back,
-					Enum.NormalId.Left,
-					Enum.NormalId.Right
+					Enum.NormalId.Back
 				}
 				for _, face in ipairs(faces) do
 					SpawnDecal(v, face)
@@ -1124,9 +1122,8 @@ SetTrans(v, 1)
 				local spreadZ = math.random(-2, 2)
 				for i = 1, 25 do
 					if not v.Parent then break end
-					local move = CFrame.new(spreadX * 0.3, 0.6, spreadZ * 0.3)
-					MovePart(v, v.CFrame * move)
-					task.wait(0.005)
+					MovePart(v, v.CFrame + CFrame.new(0,1,0))
+					task.wait(0.5)
 				end
 				delete(v)
 			end)
