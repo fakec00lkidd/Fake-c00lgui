@@ -1209,7 +1209,7 @@ local target = 0
 local smooth = 14
 local acc = 0
 local rate = 1 / 60
-_G.ShakeSistemi = true -uhhh why is this here
+_G.ShakeSistemi = true -- uhhh why is this here
 RunService.RenderStepped:Connect(function(dt)
 	if not _G.ShakeSistemi then return end
 	time += dt * 10
