@@ -1168,6 +1168,84 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
     f3xpage
 )
 CreateButton(
+    "Headshake",
+    "Heedshake",
+    function()
+        local Player = Players.LocalPlayer
+local char = Player.Character or Player.CharacterAdded:Wait()
+local function GetMeshId(part)
+	if part:IsA("MeshPart") then
+		return part.MeshId
+	end
+	local mesh = part:FindFirstChildWhichIsA("SpecialMesh")
+	if mesh then
+		return mesh.MeshId
+	end
+	return nil
+end
+local head = char:WaitForChild("Head")
+local headMesh = GetMeshId(head)
+local tool = Player:FindFirstChild("SyncAPI", true) or ReplicatedStorage:FindFirstChild("SyncAPI", true)
+if not tool then return end
+local server = tool.Parent.SyncAPI.ServerEndpoint
+local myHats = {}
+for _, thing in ipairs(char:GetChildren()) do
+	if thing:IsA("Accessory") then
+		local handle = thing:FindFirstChild("Handle")
+		if handle and handle:IsA("BasePart") then
+			local meshId = GetMeshId(handle)
+			if meshId then
+				table.insert(myHats, {
+					part = handle,
+					mesh = meshId
+				})
+			end
+		end
+	end
+end
+local time = 1
+local off = 1
+local target = 0
+local smooth = 14
+local acc = 0
+local rate = 1 / 60
+_G.ShakeSistemi = true -uhhh why is this here
+RunService.RenderStepped:Connect(function(dt)
+	if not _G.ShakeSistemi then return end
+	time += dt * 10
+	target = math.sin(time) * 0.7
+	off += (target - off) * dt * smooth
+	acc += dt
+	if acc >= rate then
+		acc = 0
+		local stuff = {}
+		if headMesh then
+			table.insert(stuff, {
+				Part = head,
+				MeshId = headMesh,
+				Offset = Vector3.new(off, 0, 0)
+			})
+		end
+		for _, hat in ipairs(myHats) do
+			table.insert(stuff, {
+				Part = hat.part,
+				MeshId = hat.mesh,
+				Offset = Vector3.new(off, 0, 0)
+			})
+		end
+		if #stuff > 0 then
+			_({
+				"SyncMesh",
+				stuff
+			})
+		end
+	end
+end)
+    end,
+    f3xpage
+)
+
+CreateButton(
     "Play music",
     "Pllay music",
     function()
