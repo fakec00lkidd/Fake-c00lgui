@@ -1007,7 +1007,7 @@ CreateButton(
     "Life reaper",
     function()
         Request(";r6")
-loadhttp("https://rawscripts.net/raw/Universal-Script-Soul-Reaper-F3X-Script-86505"
+loadhttp("https://rawscripts.net/raw/Universal-Script-Soul-Reaper-F3X-Script-86505")
     end,
     MorphPage
 )
