@@ -1122,7 +1122,7 @@ SetTrans(v, 1)
 				local spreadZ = math.random(-2, 2)
 				for i = 1, 25 do
 					if not v.Parent then break end
-					MovePart(v, v.CFrame + CFrame.new(0,1,0))
+					MovePart(v, v.CFrame * CFrame.new(0,1,0))
 					task.wait(0.5)
 				end
 				delete(v)
