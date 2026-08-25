@@ -984,6 +984,7 @@ local DecalPreset = MakeSection(page3, "Decal Presets", RIGHT)
 
 local page4 = Makeapageidk()
 local GearsPage = MakeSection(page4, "Gears", LEFT)
+local MorphPage = MakeSection(page4, "LocalPlayer", RIGHT)
 CreateButton(
     "the 3 lasers gear idk",
     "Punteros láser de dedo",
@@ -1000,11 +1001,21 @@ CreateButton(
     end,
     GearsPage
 )
-sut(page4,
+
+CreateButton(
+    "Soul reaper",
+    "Life reaper",
+    function()
+        Request(";r6")
+loadhttp("https://rawscripts.net/raw/Universal-Script-Soul-Reaper-F3X-Script-86505"
+    end,
+    MorphPage
+)
+local page5 = Makeapageidk()
+sut(page5,
     "Thank you for using fake c00lgui!\n\nHave any questions or suggestions? Dm at @fake_c00lkldd!\n\nSpecial thanks to:\nfake c00lkidd: Beta testing\nTrusted members of team fake c00lkidd: Being ultra c00l\nserversider(zzz/xz): Being ultra c00l",
     RIGHT
 )
-
 CreateButton(
     "Skybox",
     "Skiboz",
