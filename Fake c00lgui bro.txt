@@ -1096,7 +1096,7 @@ CreateButton(
     function()
 local function particlebymo0pkiddlol(id)
 	while true do
-		task.wait(0.21)
+		task.wait(1)
 		for _, plr in ipairs(game.Players:GetPlayers()) do
 			local char = plr.Character
 			if not char then continue end
@@ -1107,6 +1107,7 @@ local function particlebymo0pkiddlol(id)
 			task.spawn(function()
 				local v = ParticleCreatePart(spawnPosition, workspace)
 				if not v then return end
+SetTrans(v, 1)
 				Resize(v, Vector3.new(4, 4, 0.1), v.CFrame)
 				SetCollision(v, false)
 				local faces = {
