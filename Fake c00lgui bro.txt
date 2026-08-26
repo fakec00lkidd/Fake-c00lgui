@@ -1227,6 +1227,14 @@ loadhttp("https://pastefy.app/MiJLVJLq/raw")
     end,
     f3xpage
 )
+CreateButton(
+    "Chicken arms",
+    "you are chicken",
+    function()
+loadhttp("https://pastefy.app/oKjpLcxF/raw")
+    end,
+    f3xpage
+)
 
 CreateButton(
     "Play music",
@@ -1399,6 +1407,14 @@ CreateButton(
     "mango music 🗿",
     function()
         Request(";music 113568851878579 ;pitch 0.23 ;volume inf")
+    end,
+    MusicPreset
+)
+CreateButton(
+    "bloxiana (roblox baby)",
+    "bloxiana (yeah oof)",
+    function()
+        Request(";music 89391873510832 ;pitch 0.11 ;volume inf")
     end,
     MusicPreset
 )
