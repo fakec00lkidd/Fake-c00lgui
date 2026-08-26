@@ -1040,7 +1040,7 @@ CreateButton(
     function()
         if Isf3xenabled then
 if HDAdmin then
-Request(";time 0 ;fog 1600 1600 ;fogcolor black")
+Request(";time 0 ;fog 4000 4000 ;fogcolor black")
 end
 function Sky(id)
 	local root = char.HumanoidRootPart
@@ -1059,7 +1059,7 @@ function Sky(id)
 			SetMesh(v,"111891702759441")
 			SetTexture(v,id)
 SetMeshVertexColor(v, Vector3.new(3,3,3))
-			MeshResize(v,Vector3.new(1500,1500,1500))
+			MeshResize(v,Vector3.new(3000,3000,3000))
 			SetLocked(v,true)
 			SetAnchor(true,v)
 			SetCollision(v,false)
@@ -1291,7 +1291,7 @@ function Sky(id)
 			SetMesh(v,"111891702759441")
 			SetTexture(v,id)
 SetMeshVertexColor(v, Vector3.new(3,3,3))
-			MeshResize(v,Vector3.new(1500,1500,1500))
+			MeshResize(v,Vector3.new(3000,3000,3000))
 			SetLocked(v,true)
 			SetAnchor(true,v)
 			SetCollision(v,false)
