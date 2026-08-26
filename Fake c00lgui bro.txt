@@ -1120,29 +1120,6 @@ CreateButton(
     f3xpage
 )
 CreateButton(
-    "particles",
-    "particles",
-    function()
-local parts = {}
-for _, plr in ipairs(Players:GetPlayers()) do
-	local char = plr.Character
-	if char then
-		for _, part in ipairs(char:GetDescendants()) do
-			if part:IsA("BasePart") then
-				table.insert(parts, part)
-			end
-		end
-	end
-end
-CreateDecorations(parts)
-SyncDecorate(parts, Config.Imagen)
-for _, part in ipairs(parts) do
-	SetLocked(part, true)
-end
-    end,
-    f3xpage
-)
-CreateButton(
     "crash (EMERGENCY ONLY)",
     "crazh (EMERGENCY ONLYZ)",
     function()
@@ -1239,6 +1216,14 @@ RunService.RenderStepped:Connect(function(dt)
 		end
 	end
 end)
+    end,
+    f3xpage
+)
+CreateButton(
+    "Mesh disco",
+    "Meshh dlzco",
+    function()
+loadhttp("https://pastefy.app/MiJLVJLq/raw")
     end,
     f3xpage
 )
