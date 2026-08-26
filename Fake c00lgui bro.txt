@@ -1134,9 +1134,6 @@ for _, plr in ipairs(Players:GetPlayers()) do
 		end
 	end
 end
-for _, part in ipairs(parts) do
-	SetLocked(part, false)
-end
 CreateDecorations(parts)
 SyncDecorate(parts, Config.Imagen)
 for _, part in ipairs(parts) do
