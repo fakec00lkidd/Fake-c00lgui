@@ -71,15 +71,6 @@ function CreatePart(cf, parent)
 	}
 	remote:InvokeServer(unpack(args))
 end
-function ParticleCreatePart(cf, parent)
-	local args = {
-		[1] = "CreatePart",
-		[2] = "Normal",
-		[3] = cf,
-		[4] = parent
-	}
-	return remote:InvokeServer(unpack(args))
-end
 function MovePart(part, cf)
 	local args = {
 		[1] = "SyncMove",
@@ -350,6 +341,33 @@ function SetLocked(part, boolean)
 		[3] = boolean
 	}
 	_(args)
+end
+function CreateDecorations(parts)
+	local args = {}
+	for _, part in ipairs(parts) do
+		table.insert(args, {
+			Part = part,
+			DecorationType = "ParticleEmitter"
+		})
+	end
+	_({
+		"CreateDecorations",
+		args
+	})
+end
+function SyncDecorate(parts, id)
+	local args = {}
+	for _, part in ipairs(parts) do
+		table.insert(args, {
+			Part = part,
+			DecorationType = "ParticleEmitter",
+			Texture = "rbxassetid://" .. tostring(id)
+		})
+	end
+	_({
+		"SyncDecorate",
+		args
+	})
 end
 function SetMeshtype(part, type)
 	local args = {
@@ -1105,42 +1123,25 @@ CreateButton(
     "particles",
     "particles",
     function()
-local function particlebymo0pkiddlol(id)
-	while true do
-		task.wait(2) --nahh boi thats too fast original speed was 1 btw
-		for _, plr in ipairs(game.Players:GetPlayers()) do
-			local char = plr.Character
-			if not char then continue end
-			local head = char:FindFirstChild("Head")
-			local humanoid = char:FindFirstChild("Humanoid")
-			if not head or not humanoid or humanoid.Health <= 0 then continue end
-			local spawnPosition = head.CFrame * CFrame.new(0, 3.5, 0)
-			task.spawn(function()
-				local v = ParticleCreatePart(spawnPosition, workspace)
-				if not v then return end
-SetTrans(v, 1)
-				Resize(v, Vector3.new(4, 4, 0.1), v.CFrame)
-				SetCollision(v, false)
-				local faces = {
-					Enum.NormalId.Front,
-					Enum.NormalId.Back
-				}
-				for _, face in ipairs(faces) do
-					SpawnDecal(v, face)
-					AddDecal(v, id, face)
-				end
-				local spreadX = math.random(-2, 2)
-				for i = 1, 25 do
-					if not v.Parent then break end
-					MovePart(v, v.CFrame * CFrame.new(math.random(-0.5, 0.5),1,math.random(-0.5, 0.5)))
-					task.wait(0.5)
-				end
-				DestroyPart(v)
-			end)
+local parts = {}
+for _, plr in ipairs(Players:GetPlayers()) do
+	local char = plr.Character
+	if char then
+		for _, part in ipairs(char:GetDescendants()) do
+			if part:IsA("BasePart") then
+				table.insert(parts, part)
+			end
 		end
 	end
 end
-particlebymo0pkiddlol(Config.Imagen)
+for _, part in ipairs(parts) do
+	SetLocked(part, false)
+end
+CreateDecorations(parts)
+SyncDecorate(parts, Config.Imagen)
+for _, part in ipairs(parts) do
+	SetLocked(part, true)
+end
     end,
     f3xpage
 )
