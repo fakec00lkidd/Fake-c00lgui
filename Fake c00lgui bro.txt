@@ -1120,6 +1120,48 @@ CreateButton(
     f3xpage
 )
 CreateButton(
+    "particles",
+    "particles",
+    function()
+local function particlebymo0pkiddlol(id)
+	while true do
+		task.wait(1)
+		for _, plr in ipairs(game.Players:GetPlayers()) do
+			local char = plr.Character
+			if not char then continue end
+			local head = char:FindFirstChild("Head")
+			local humanoid = char:FindFirstChild("Humanoid")
+			if not head or not humanoid or humanoid.Health <= 0 then continue end
+			local spawnPosition = head.CFrame * CFrame.new(0, 3.5, 0)
+			task.spawn(function()
+				local v = ParticleCreatePart(spawnPosition, workspace)
+				if not v then return end
+SetTrans(v, 1)
+				Resize(v, Vector3.new(4, 4, 0.1), v.CFrame)
+				SetCollision(v, false)
+				local faces = {
+					Enum.NormalId.Front,
+					Enum.NormalId.Back
+				}
+				for _, face in ipairs(faces) do
+					SpawnDecal(v, face)
+					AddDecal(v, id, face)
+				end
+				for i = 1, 50 do
+					if not v.Parent then break end
+					MovePart(v, v.CFrame * CFrame.new(0,0.5, 0))
+					task.wait(0.25)
+				end
+				DestroyPart(v)
+			end)
+		end
+	end
+end
+particlebymo0pkiddlol(Config.Imagen)
+    end,
+    f3xpage
+)
+CreateButton(
     "crash (EMERGENCY ONLY)",
     "crazh (EMERGENCY ONLYZ)",
     function()
