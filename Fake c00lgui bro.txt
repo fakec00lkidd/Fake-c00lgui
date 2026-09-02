@@ -1134,7 +1134,7 @@ CreateButton(
     function()
 local function particlebymo0pkiddlol(id)
 	while true do
-		task.wait(1)
+		task.wait(2)
 		for _, plr in ipairs(game.Players:GetPlayers()) do
 			local char = plr.Character
 			if not char then continue end
