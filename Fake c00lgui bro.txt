@@ -71,6 +71,15 @@ function CreatePart(cf, parent)
 	}
 	remote:InvokeServer(unpack(args))
 end
+function ParticleCreatePart(cf, parent)
+	local args = {
+		[1] = "CreatePart",
+		[2] = "Normal",
+		[3] = cf,
+		[4] = parent
+	}
+	return remote:InvokeServer(unpack(args))
+end
 function MovePart(part, cf)
 	local args = {
 		[1] = "SyncMove",
@@ -1449,6 +1458,22 @@ CreateButton(
     "mango music 🗿",
     function()
         Request(";music 113568851878579 ;pitch 0.23 ;volume inf")
+    end,
+    MusicPreset
+)
+CreateButton(
+    "unhappy",
+    "vnhapppy",
+    function()
+        Request(";music 88523902860927 ;volume 10 ;pitch 1.2")
+    end,
+    MusicPreset
+)
+CreateButton(
+    "virtual luv",
+    "virtual love",
+    function()
+        Request(";music 123986270017847 ;volume 10 ;pitch 1.1")
     end,
     MusicPreset
 )
