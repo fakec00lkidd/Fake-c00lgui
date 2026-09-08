@@ -122,23 +122,6 @@ SpawnPart("Normal", "Wall_Right", Vector3.new(DAY, H, W), CFrame.new(centerFloor
 SpawnPart("Normal", "Wall_Left", Vector3.new(DAY, H, W), CFrame.new(centerFloor + Vector3.new(-L / 2, H / 2, 0)), mauTuong)
 
 local matDentroZ = centerFloor.Z + W / 2 - DAY / 2
-local statueOrigin = Vector3.new(centerFloor.X, basePos.Y + DAY, matDentroZ - 3)
-local statueCF = CFrame.new(statueOrigin)
-local skinColor = Color3.fromRGB(255, 255, 255)
-local blueColor = Color3.fromRGB(255, 255, 255)
-local greenBodyColor = Color3.fromRGB(180, 180, 180)
-SpawnPart("Normal", "Statue_LeftLeg", Vector3.new(2, 4, 2), statueCF * CFrame.new(-1, 2, 0), blueColor)
-SpawnPart("Normal", "Statue_RightLeg", Vector3.new(2, 4, 2), statueCF * CFrame.new(1, 2, 0), blueColor)
-local torso = SpawnPart("Normal", "Statue_Torso", Vector3.new(4, 4, 2), statueCF * CFrame.new(0, 6, 0), greenBodyColor)
-SpawnPart("Normal", "Statue_LeftArm", Vector3.new(2, 4, 2), statueCF * CFrame.new(-3, 6, 0), skinColor)
-SpawnPart("Normal", "Statue_RightArm", Vector3.new(2, 4, 2), statueCF * CFrame.new(3, 6, 0), skinColor)
-local head = SpawnPart("Normal", "Statue_Head", Vector3.new(2, 2, 2), statueCF * CFrame.new(0, 9, 0), Color3.fromRGB(0, 0, 0))
-if head then
-    AddMesh(head)
-    MeshResize(head, Vector3.new(1.25, 1.25, 1.25))
-    SpawnDecal(head, Enum.NormalId.Front)
-    AddDecal(head, "131359259709294", Enum.NormalId.Front)
-end
 local thamDay = 0.3
 local thamDai = 20
 local thamRong = 15
