@@ -512,7 +512,7 @@ local function CheckSound()
     if math.abs(sound.PlaybackSpeed - OriginalPitch) > 0.001 then
         RequestCommand:InvokeServer(";pitch 1.2")
     end
-    if sound.Volume ~= math.huge then
+    if sound.Volume ~= 10 then
         RequestCommand:InvokeServer(";volume inf")
     end
 end
