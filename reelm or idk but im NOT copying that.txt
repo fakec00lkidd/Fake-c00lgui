@@ -151,6 +151,18 @@ if thamPart then
     SpawnDecal(thamPart, Enum.NormalId.Top)
     AddDecal(thamPart, "290658294", Enum.NormalId.Top)
 end
+-- ================= CROSS (DESACTIVADO) =================
+local crossYBase = basePos.Y + DAY
+local crossHeight = 10
+local crossWidth = 6
+local crossThick = 0.8
+local crossZ = statueOrigin.Z
+local crossColor = Color3.fromRGB(139, 69, 19)
+local crossDistX = 10
+
+-- Se conserva porque se usa más abajo en:
+-- local blockX = rightX + 10
+local rightX = statueOrigin.X + crossDistX
 local panelWidth = 50
 local panelHeight = 25
 local panelThick = 0.2
