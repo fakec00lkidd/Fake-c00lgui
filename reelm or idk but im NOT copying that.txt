@@ -45,6 +45,18 @@ end
 local function CreatePart(partType, cf, parent)
     return remote:InvokeServer("CreatePart", partType or "Normal", cf, parent or workspace)
 end
+function MovePart(part, cf)
+	local args = {
+		[1] = "SyncMove",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["CFrame"] = cf
+			}
+		}
+	}
+	_(args)
+end
 local function Resize(part, size, cf)
     _({"SyncResize", {{["Part"] = part, ["CFrame"] = cf, ["Size"] = size}}})
 end
@@ -430,7 +442,7 @@ local function CheckPart(part, data)
         return
     end
     if not SameCFrame(part.CFrame, data.CFrame) then
-        _({"SyncResize", {{["Part"] = part, ["CFrame"] = data.CFrame, ["Size"] = part.Size}}})
+     MovePart(part, data.CFrame)
     end
     if part.Size ~= data.Size then
         _({"SyncResize", {{["Part"] = part, ["CFrame"] = data.CFrame, ["Size"] = data.Size}}})
