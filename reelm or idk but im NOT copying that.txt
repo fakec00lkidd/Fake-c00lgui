@@ -485,25 +485,12 @@ local function CheckMap()
             CheckPart(originalPart, data)
         end
     end
-    for _, part in ipairs(workspace:GetDescendants()) do
-        if part:IsA("BasePart") and not MapParts[part] then
-            local model = part:FindFirstAncestorOfClass("Model")
-            if not (model and Players:GetPlayerFromCharacter(model)) then
-                RemoveNewPart(part)
-            end
-        end
-    end
 end
 workspace.DescendantAdded:Connect(function(part)
     if not GuardianRunning or not part:IsA("BasePart") then
         return
     end
-    task.wait()
     if MapParts[part] then
-        return
-    end
-    local model = part:FindFirstAncestorOfClass("Model")
-    if model and Players:GetPlayerFromCharacter(model) then
         return
     end
     RemoveNewPart(part)
