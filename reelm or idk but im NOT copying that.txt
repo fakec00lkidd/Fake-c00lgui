@@ -497,7 +497,7 @@ workspace.DescendantAdded:Connect(function(part)
     RemoveNewPart(part)
 end)
 local OriginalSoundId = "rbxassetid://76237600899652"
-local OriginalPitch = 0.2
+local OriginalPitch = 1.2
 local SoundCommand = ";music 76237600899652 ;volume 10 ;pitch 1.2"
 local function CheckSound()
     local sound = workspace:FindFirstChild("HDAdminSound")
