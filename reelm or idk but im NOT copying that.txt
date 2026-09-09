@@ -101,11 +101,10 @@ local function DestroyPart(part)
 end
 local function SpawnPart(partType, partName, size, targetCF, partColor)
     local part = CreatePart(partType or "Normal", targetCF, workspace)
+print("creating that part named " .. partName)
     if part then
-        SetName(part, partName)
         Resize(part, size, targetCF)
         Color(part, partColor)
-        SetAnchor(part, true)
         SetLocked(part, true)
     end
     return part
