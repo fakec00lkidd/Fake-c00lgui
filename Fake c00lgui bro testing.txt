@@ -1140,7 +1140,7 @@ local function processPart(descendant)
             return
         end
         CreateDecorations(descendant)
-SyncDecorate(descendant, Config.Imagen)
+SyncDecorate(descendant, tostring(Config.Imagen))
     end
 end
 task.spawn(function()
