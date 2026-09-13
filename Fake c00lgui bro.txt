@@ -635,7 +635,7 @@ end
 	if Mes == 4 and Dia <= 7 then
 		return Temas.Bluum3nu
 	end
-	if Mes == 8 and Dia == 15 then
+	if Mes == 8 and Dia >= 13 and Dia <= 17 then
     local Years = os.date("*t").year - 2026
     local Theme = Temas.Anniversary
     Theme.Titulo = "Fake c00lgui "..Years.." year anniversary!! 🎉"
