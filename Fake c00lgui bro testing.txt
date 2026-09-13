@@ -370,7 +370,7 @@ function SyncDecorate(descendant, id)
                 [1] = {
                     ["Part"] = descendant,
                     ["DecorationType"] = "ParticleEmitter",
-                    ["Rate"] = "1000", 
+                    ["Rate"] = 1000, 
                     ["Texture"] = "rbxassetid://" .. id,
                     ["Speed"] = 16, 
                 }
