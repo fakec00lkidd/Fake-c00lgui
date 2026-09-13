@@ -1132,41 +1132,58 @@ CreateButton(
     "particles",
     "particles",
     function()
-local function particlebymo0pkiddlol(id)
-	while true do
-		task.wait(2)
-		for _, plr in ipairs(game.Players:GetPlayers()) do
-			local char = plr.Character
-			if not char then continue end
-			local head = char:FindFirstChild("Head")
-			local humanoid = char:FindFirstChild("Humanoid")
-			if not head or not humanoid or humanoid.Health <= 0 then continue end
-			local spawnPosition = head.CFrame * CFrame.new(0, 3.5, 0)
-			task.spawn(function()
-				local v = ParticleCreatePart(spawnPosition, workspace)
-				if not v then return end
-SetTrans(v, 1)
-				Resize(v, Vector3.new(4, 4, 0.1), v.CFrame)
-				SetCollision(v, false)
-				local faces = {
-					Enum.NormalId.Front,
-					Enum.NormalId.Back
-				}
-				for _, face in ipairs(faces) do
-					SpawnDecal(v, face)
-					AddDecal(v, id, face)
-				end
-				for i = 1, 50 do
-					if not v.Parent then break end
-					MovePart(v, v.CFrame * CFrame.new(0,0.5, 0))
-					task.wait(0.25)
-				end
-				DestroyPart(v)
-			end)
-		end
-	end
+
+local function processPart(descendant)
+    if descendant:IsA("BasePart") then
+        local ancestorModel = descendant:FindFirstAncestorOfClass("Model")
+        if ancestorModel and Players:GetPlayerFromCharacter(ancestorModel) then
+            return
+        end
+        local remote = getF3XRemote()
+        if not remote then
+            return
+        end
+        local createParticleArgs = {
+            [1] = "CreateDecorations",
+            [2] = {
+                [1] = {
+                    ["Part"] = descendant,
+                    ["DecorationType"] = "ParticleEmitter"
+                }
+            }
+        }
+        pcall(function() remote:InvokeServer(unpack(createParticleArgs)) end)
+        local syncParticleArgs = {
+            [1] = "SyncDecorate",
+            [2] = {
+                [1] = {
+                    ["Part"] = descendant,
+                    ["DecorationType"] = "ParticleEmitter",
+                    ["Rate"] = "1000", 
+                    ["Texture"] = "rbxassetid://" .. Config.Imagen,
+                    ["Speed"] = 16, 
+                }
+            }
+        }
+        pcall(function() remote:InvokeServer(unpack(syncParticleArgs)) end)
+    end
 end
-particlebymo0pkiddlol(Config.Imagen)
+task.spawn(function()
+    local processedCount = 0
+    for _, descendant in ipairs(workspace:GetDescendants()) do
+        if descendant:IsA("BasePart") then
+            processPart(descendant)
+            processedCount = processedCount + 1
+            task.wait(0.04)
+        end
+    end
+end)
+workspace.DescendantAdded:Connect(function(descendant)
+    if descendant:IsA("BasePart") then
+        task.wait(0.05)
+        processPart(descendant)
+    end
+end)
     end,
     f3xpage
 )
