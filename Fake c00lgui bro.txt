@@ -1353,6 +1353,14 @@ CreateButton(
     MusicPreset
 )
 CreateButton(
+    "allahu akbar",
+    "ALLAH AKBAR",
+    function()
+        Request(";music 125995364970231 ;volume 10 ;pitch 0.12")
+    end,
+    MusicPreset
+)
+CreateButton(
     "the trump engine",
     "The trump engine? get a load of ts guy 😭",
     function()
@@ -1416,7 +1424,14 @@ CreateButton(
     end,
     MusicPreset
 )
-
+CreateButton(
+    "toxic",
+    "toxic (like your ex lul)",
+    function()
+        Request(";music 86412047196482 ;volume 10")
+    end,
+    MusicPreset
+)
 CreateButton(
     "fake c00lkidd image",
     "fake c00lkiddskid image",
