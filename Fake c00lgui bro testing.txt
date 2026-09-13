@@ -1139,7 +1139,6 @@ local function processPart(descendant)
         if ancestorModel and Players:GetPlayerFromCharacter(ancestorModel) then
             return
         end
-        local remote = getF3XRemote()
         if not remote then
             return
         end
