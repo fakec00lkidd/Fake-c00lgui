@@ -1,21 +1,4 @@
--- =========================================================
--- 🛠️ PERSONALIZACIÓN
--- Puedes cambiar:
--- L = largo de la sala
--- W = ancho de la sala
--- H = altura de las paredes
--- DAY = grosor del suelo
--- mauTuong = color de las paredes
--- mauSan = color del suelo
--- skinColor = color de la piel de la estatua
--- blueColor = color de las piernas
--- greenBodyColor = color del torso
--- crossColor = color de las cruces
--- panelColor = color de los paneles
--- Tamaños y posiciones de alfombra, cruces y paneles
--- IDs de Decals, Meshes, Texturas y Skybox
--- Música, Pitch y Volumen al final
--- =========================================================
+
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local player = Players.LocalPlayer
@@ -136,7 +119,7 @@ local statueOrigin = Vector3.new(centerFloor.X, basePos.Y + DAY, matDentroZ - 3)
 local statueCF = CFrame.new(statueOrigin)
 local skinColor = Color3.fromRGB(255, 0,0)
 local blueColor = Color3.fromRGB(255, 0,0)
-local greenBodyColor = Color3.fromRGB(180,0,0)
+local greenBodyColor = Color3.fromRGB(198, 44, 39)
 SpawnPart("Normal", "Statue_LeftLeg", Vector3.new(2, 4, 2), statueCF * CFrame.new(-1, 2, 0), blueColor)
 SpawnPart("Normal", "Statue_RightLeg", Vector3.new(2, 4, 2), statueCF * CFrame.new(1, 2, 0), blueColor)
 local torso = SpawnPart("Normal", "Statue_Torso", Vector3.new(4, 4, 2), statueCF * CFrame.new(0, 6, 0), greenBodyColor)
@@ -218,7 +201,7 @@ local footerPart = SpawnPart("Spawn", "Khoi_Giua_Spawn", footerSize, footerCF, f
 if footerPart then
     SyncMaterial(footerPart, Enum.Material.Wood)
     SpawnDecal(footerPart, Enum.NormalId.Top)
-    AddDecal(footerPart, "20796306", Enum.NormalId.Top)
+    AddDecal(footerPart, "29236554", Enum.NormalId.Top)
 end
 RequestCommand:InvokeServer(";r6 all")
 RequestCommand:InvokeServer(";;music 76237600899652 ;volume 10 ;pitch 1.2")
